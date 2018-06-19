@@ -27,7 +27,7 @@ If applicable, add screenshots and/or short video (compressed into a zip file) t
 **Environment**  
  - OS: Win10/macOS high sierra
  - Unity version: 5.6.5f1/2017.1f1/2018.1.5f1
- - MTE Version: MTE v3.1.1/MTE v3.1.2
+ - MTE Version: 3.1.1/3.1.2
 
 **Additional context**  
 Add any other context about the problem here.
