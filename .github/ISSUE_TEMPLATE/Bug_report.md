@@ -14,8 +14,8 @@ Steps to reproduce the behavior:
 2. Click on '....'
 3. See error
 
-> error log line 1
-> error log line 2
+> error log line 1  
+> error log line 2  
 > error log line 3
 
 **Expected behavior**  
