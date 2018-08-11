@@ -4,6 +4,8 @@ about: Create a report to help us improve
 
 ---
 
+__NEVER post invoice number publicly.__
+
 **Describe the bug**  
 A clear and concise description of what the bug is.
 
