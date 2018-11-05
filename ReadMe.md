@@ -1,5 +1,7 @@
 # Mesh Terrain Editor Issue Tracker
 
+[![Join the chat at https://gitter.im/MeshTerrainEditor/Lobby](https://badges.gitter.im/MeshTerrainEditor/Lobby.svg)](https://gitter.im/MeshTerrainEditor/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is the official issue tracking repo of [Mesh Terrain Editor](http://forum.unity3d.com/threads/mte.396808/) for Unity.
 
 # Unity Asset Store
