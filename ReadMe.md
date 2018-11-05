@@ -1,6 +1,5 @@
 # Mesh Terrain Editor Issue Tracker
 
-[![Join the chat at https://gitter.im/MeshTerrainEditor/Lobby](https://badges.gitter.im/MeshTerrainEditor/Lobby.svg)](https://gitter.im/MeshTerrainEditor/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is the official issue tracking repo of [Mesh Terrain Editor](http://forum.unity3d.com/threads/mte.396808/) for Unity.
 
@@ -12,6 +11,7 @@ This is the official issue tracking repo of [Mesh Terrain Editor](http://forum.u
 # Community
 
 Forum: http://forum.unity3d.com/threads/mte.396808/
+Gitter: [![Join the chat at https://gitter.im/MeshTerrainEditor/Lobby](https://badges.gitter.im/MeshTerrainEditor/Lobby.svg)](https://gitter.im/MeshTerrainEditor/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 论坛：http://forum.china.unity3d.com/thread-16521-1-1.html  
 QQ群：[689511734](http://shang.qq.com/wpa/qunwpa?idkey=5e654a8b0cb6d9fc3694a72962a05d1458222776ebdae00318f48b2dfb156267)
