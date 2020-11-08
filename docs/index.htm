@@ -1184,18 +1184,26 @@ holdReady:function(a){a?r.readyWait++:r.ready(!0)},ready:function(a){(a===!0?--r
 
 	<div class="lang" id="en-US"><!--lang block begin-->
 		<p>Thanks for choosing Mesh Terrain Editor! I hope you have fun working with it. :)</p>
-		<p>Mesh Terrain Editor v<span name="InformationVersion">3.7.2f1</span> (abbreviated to "MTE") </p>
+		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.0f1</span> (abbreviated to "MTE") </p>
 
 		<p>Join Mesh Terrain Editor's <a href="https://discord.gg/dQqp8B6">Discord Server</a>!</p>
+	
+        <p><a href="https://zwcloud.github.io/MeshTerrainEditor-issues/index.htm">Click to see latest documentation.</a></p>
 
 		<h1 id="en-US_Installation">Installation</h1>
 		<div class="task-container">
-			<p><b>You can just start using MTE without any installation.</b></p>
+			<p>You can just start using MTE without any installation, but It's recommended for first-time users to read docs about specific function before using it. Also be sure to read following points:</p>
+			<ul>
+                <li>MTE will modify your mesh and related files. Your files may be corrupted under rare conditions. Please, be sure to use a version control system like <a href="https://subversion.apache.org/">SVN</a> or <a href="https://git-scm.com/">GIT</a> to manage files in your project. It's really important to <b>back up your files!</b></li>
+                <li><strong>Do not check Optimize Mesh</strong> in the mesh import settings of the obj mesh file when editing with MTE. Such optimization by the mesh importer will possibly change the vertex count and index order. That makes the mesh data inconsistent with the obj file, which leads to many problems when editing the mesh with MTE.</li>
+                <li>Editing operations are <strong>undoable before saving the mesh</strong>. Please note that once auo-save is enabled, when auto-save happened, you can no longer redo/undo. </li>
+                <li>Please note that <b>the unit of brush sizes can be adjusted in <a href="#en-US_Settings">Settings</a> &gt; Brush unit</b>. <code>(actual brush size) = (bursh size) * (brush unit)</code>. So you can adjust the brush unit to a suitable value before starting editing anything. It's recommended to use the same size as one quad of the mesh. (The quad size calculated by MTE may be incorrect for meshes not created by Mesh Terrain Editor.)</li>
+			</ul>
 		</div>
 
 		<h1 id="en-US_Menu">Main Menu</h1>
 		<div class="task-container">
-			<p>Main menu of Mesh Terrain Editor is located at <span class="menu-path">Window/Mesh Terrain Editor</span></p>
+			<p>Main menu of Mesh Terrain Editor is located at <span class="menu-path">Window/Mesh Terrain Editor</span>. By clicking on an entry of the menu, you can open MTE windows  that provides functions to use.</p>
 
 			<h2>Mesh Terrain Editor</h2>
 			<img class="menu-1" />
@@ -1278,24 +1286,14 @@ Plugins
     └── Shaders
         ├── MTE Common.cginc (shared code for MTE shaders)
         ├── Experimental (experimental shaders, not stable)
-        ├── HDRP (experimental HDRP shaders, not stable)
-        ├── LWRP (LWRP shaders)
+        ├── HDRP (experimental HDRP shaders, created with Amplify Shader Editor, not stable)
+        ├── LWRP (LWRP shaders, deprecated by Unity)
         ├── Legacy (legacy surface shaders)
         ├── Specialized (special shader for certain old GPU)
         ├── Standard (standard shaders)
-        ├── URP (URP shaders)
+        ├── URP (URP shaders, created with Amplify Shader Editor)
         └── Unlit (unlit CG shaders)
 </pre>
-		</div>
-
-		<h1 id="en-US_ImportantNote" style="color: orangered;">Important Note</h1>
-		<div class="task-container">
-			<ul>
-				<li>MTE will modify your mesh and related files. Your files may be corrupted under rare conditions. Please, be sure to use a version control system like <a href="https://subversion.apache.org/">SVN</a> or <a href="https://git-scm.com/">GIT</a> to manage files in your project. It's really important to <b>back up your files!</b></li>
-				<li><strong>Do not check Optimize Mesh</strong> in the mesh import settings of the obj mesh file when editing with MTE. Such optimization by the mesh importer will possibly change the vertex count and index order. That makes the mesh data inconsistent with the obj file, which leads to many problems when editing the mesh with MTE.</li>
-				<li>Editing operations are <strong>undoable before saving the mesh</strong>. Please note that once auo-save is enabled, when auto-save happened, you can no longer redo/undo. </li>
-				<li>Please note that <b>the unit of brush sizes can be adjusted in <a href="#en-US_Settings">Settings</a> &gt; Brush unit</b>. <code>(actual brush size) = (bursh size) * (brush unit)</code>. So you can adjust the brush unit to a suitable value before starting editing anything. It's recommended to use the same size as one cell(tile) of the mesh. (The cell size calculated by MTE may be incorrect for meshes not created by Mesh Terrain Editor.)</li>
-			</ul>
 		</div>
 
 		<h1 id="en-US_Activation">Activate MTE Pro</h1>
@@ -2219,6 +2217,38 @@ Plugins
 
 		<h1 id="en-US_VersionHistory">Version History</h1>
 		<div class="task-container">
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0f1</a></p>
+			<ul>
+				<li>
+					<strong>Editor</strong>
+					<ul>
+						<li>[Object Painter] Add Support to set unified scale for prefabs.</li>
+                        <li>[Object Painter] Add Support to disallow overlap when painting.</li>
+                        <li>[Basemap Baker] Add Support to disable lighting.</li>
+						<li>[Basemap Baker] Add Support to consider lightmap when baking.</li>
+                        <li>[Basemap Baker] Add Support to set the size of output image.</li>
+                        <li>[] Add Support: </li>
+					</ul>
+				</li>
+                <li>
+                    <strong>Shader</strong>
+                    <ul>
+                        <li>Support normal intensity as a `shader_feature` for all shaders using normal maps.</li>
+                        <li>Support smoothness texture for standard and URP shaders: provide tool to merge albedo(RGB) and smoothness(A) texture into one single RGBA32 texture for each layer.</li>
+                        <li>Add height-blending shader, only support 4 layers.</li>
+                    </ul>
+                </li>
+				<li>
+					<strong>General</strong>
+					<ul>
+                        <li>Improve compatibility with latest URP.</li>
+                        <li>Improve compatibility with latest Amplify Shader Editor.</li>
+                        <li>Improve UX: the creator and converter will center output mesh-terrain(s) in the scene view.</li>
+						<li>Improve UX: disable MTE editor when a camera is selected.</li>
+						<li>Improve stability and UI arrangement.</li>
+					</ul>
+                </li>
+			</ul>
 			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/2">2020-09-01 v3.7.2</a></p>
 			<ul>
 				<li>
@@ -2269,62 +2299,63 @@ Plugins
 					</ul>
                 </li>
 			</ul>
-			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/15?closed=1">2020-05-05 v3.7.0</a></p>
-			<ul>
-				<li>
-					<strong>Creator</strong>
-					<ul>
-						<li>Support Alpha8 and R8 format for creating a mesh-terrain from a height-map.</li>
-						<li>Fixed issue when creating tiled mesh-terrains: A meta data file (.meta) exists but its asset 'xxx/prototype' can't be found</li>
-						<li>Fixed issues: No control map in created tiled mesh-terrains.</li>
-					</ul>
-				</li>
-				<li>
-					<strong>Converter</strong>
-					<ul>
-						<li>Fixed issue: When converting a mesh to a mesh-terrain, no control map is assigned to the material.</li>
-                        <li>Fixed issue: NullReferenceException error occurs when trying to convert a Unity terrain with invalid splat-layers.</li>
-					</ul>
-				</li>
-				<li>
-					<strong>Editor</strong>
-					<ul>
-						<li>Added support to change the color of brush points and rectangle.</li>
-						<li>Added support: auto-save mesh when mouse released for height tools and mesh-misc tool.</li>
-						<li>Added support: auto-save mesh every specified minutes.</li>
-						<li>Added notification when mesh is saved.</li>
-						<li>Improved UX: infrequently update MeshCollider for big meshes to reduce lag.</li>
-						<li>Fixed issue: Hand Tool and painters conflict with each other.</li>
-                        <li>Fixed issue: GrassLoader became missing script and grasses.asset is invalid after upgrade to a new version.</li>
-						<li>Fixed issue: Error ArgumentException: relativePath Resources/unity_builtin_extra doesn't starts with "Assets/" occurred when opening MTE editor after creating a plane.</li>
-					</ul>
-				</li>
-				<li>
-					<strong>General</strong>
-					<ul>
-                        <li>Refresh the documentation/ReadMe file completely.</li>
-                        <li>Added experimental 6/7/8 Textures shader.</li>
-						<li>Added experimental height blending packed shader: Experimental/Packed.</li>
-						<li>Added Texture Adjuster to resize or flip existing (control) textures.</li>
-						<li>Improved UX: show notification when switching tools.</li>
-						<li>Improved UX: customize label width of controls in the creator window.</li>
-                        <li>Fixed issue: shader UI for MTE/Standard/5 Textures/Bumped/Fog.</li>
-						<li>Fixed issue: the welcome window won't show up.</li>
-                        <li>Support URP.</li>
-                        <li>Support Unity 2019.3 and 2020.1.</li>
-						<li>Added menu item to open editor log directory.</li>
-                        <li>Added menu item to reset Mesh Terrain Editor.</li>
-						<li>Fix control texture importer settings: "sRGB (Color Texture)" should not be checked.</li>
-                        <li>Improved UX: make the help button more recognizable on Unity 2019.3+.</li>
-                        <li>Fixed UI issue: no selection blue background on new-style(flat) Unity
-                            editor GUI on Unity 2019.3+.</li>
-						<li>Added button to adjust the control map in shader editor.</li>
-					</ul>
-                </li>
-			</ul>
 			<button class="toggleButton">More</button>
 
 			<div class="toggleContent">
+				
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/15?closed=1">2020-05-05 v3.7.0</a></p>
+			    <ul>
+				    <li>
+					    <strong>Creator</strong>
+					    <ul>
+						    <li>Support Alpha8 and R8 format for creating a mesh-terrain from a height-map.</li>
+						    <li>Fixed issue when creating tiled mesh-terrains: A meta data file (.meta) exists but its asset 'xxx/prototype' can't be found</li>
+						    <li>Fixed issues: No control map in created tiled mesh-terrains.</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>Converter</strong>
+					    <ul>
+						    <li>Fixed issue: When converting a mesh to a mesh-terrain, no control map is assigned to the material.</li>
+                            <li>Fixed issue: NullReferenceException error occurs when trying to convert a Unity terrain with invalid splat-layers.</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>Editor</strong>
+					    <ul>
+						    <li>Added support to change the color of brush points and rectangle.</li>
+						    <li>Added support: auto-save mesh when mouse released for height tools and mesh-misc tool.</li>
+						    <li>Added support: auto-save mesh every specified minutes.</li>
+						    <li>Added notification when mesh is saved.</li>
+						    <li>Improved UX: infrequently update MeshCollider for big meshes to reduce lag.</li>
+						    <li>Fixed issue: Hand Tool and painters conflict with each other.</li>
+                            <li>Fixed issue: GrassLoader became missing script and grasses.asset is invalid after upgrade to a new version.</li>
+						    <li>Fixed issue: Error ArgumentException: relativePath Resources/unity_builtin_extra doesn't starts with "Assets/" occurred when opening MTE editor after creating a plane.</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>General</strong>
+					    <ul>
+                            <li>Refresh the documentation/ReadMe file completely.</li>
+                            <li>Added experimental 6/7/8 Textures shader.</li>
+						    <li>Added experimental height blending packed shader: Experimental/Packed.</li>
+						    <li>Added Texture Adjuster to resize or flip existing (control) textures.</li>
+						    <li>Improved UX: show notification when switching tools.</li>
+						    <li>Improved UX: customize label width of controls in the creator window.</li>
+                            <li>Fixed issue: shader UI for MTE/Standard/5 Textures/Bumped/Fog.</li>
+						    <li>Fixed issue: the welcome window won't show up.</li>
+                            <li>Support URP.</li>
+                            <li>Support Unity 2019.3 and 2020.1.</li>
+						    <li>Added menu item to open editor log directory.</li>
+                            <li>Added menu item to reset Mesh Terrain Editor.</li>
+						    <li>Fix control texture importer settings: "sRGB (Color Texture)" should not be checked.</li>
+                            <li>Improved UX: make the help button more recognizable on Unity 2019.3+.</li>
+                            <li>Fixed UI issue: no selection blue background on new-style(flat) Unity
+                                editor GUI on Unity 2019.3+.</li>
+						    <li>Added button to adjust the control map in shader editor.</li>
+					    </ul>
+                    </li>
+			    </ul>
 				<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/14?closed=1">2019-12-24 v3.6.1</a></p>
 				<ul>
 					<li>
@@ -3093,21 +3124,27 @@ Plugins
 		<!--lang block begin-->
 
 		<p>感谢选择Mesh Terrain Editor！希望您用得高兴。^_^</p>
-		<p>Mesh Terrain Editor v<span name="InformationVersion">3.7.2f1</span>， 缩写为"MTE"</p>
+		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.0f1</span>， 缩写为"MTE"</p>
 
 		<p style="font-weight: bold">欢迎加入Mesh Terrain Editor交流群<a href="http://shang.qq.com/wpa/qunwpa?idkey=5e654a8b0cb6d9fc3694a72962a05d1458222776ebdae00318f48b2dfb156267" rel="nofollow">689511734</a></p>
+	
+	    <p><a href="https://zwcloud.gitee.io/meshterraineditor-issues/index.htm#zh-Hans">点击查看最新版本文档</a></p>
 
-		<h1 id="zh-Hans_Installation">安装</h1>
+		<h1 id="zh-Hans_Installation">开始使用</h1>
 		<div class="task-container">
-			<p><b>无需安装，您可以直接开始使用Mesh Terrain Editor.</b> 但是，</p>
+			<p><b>MTE的包导入后无需进一步安装，您可以直接开始使用Mesh Terrain Editor.</b> 但是在第一次使用各项功能前，建议先查看相关的文档。并且请注意以下几点：</p>
 			<ul>
-				<li>MTE已提供了简体中文界面文件，可以设置界面显示简体中文，具体使用方法请参考 <a href="#zh-Hans_CustomiseUILanguage">自定义UI语言</a></li>
+				<li>MTE会根据系统语言自动设置界面语言，不过有可能会失效，可以自行到设置界面为简体中文，具体请参考 <a href="#zh-Hans_CustomiseUILanguage">自定义UI语言</a>。</li>
+                <li>MTE会修改你的模型和相关文件。在编辑和保存的过程中，你的文件可能会在某些罕见的情况下被破坏。请一定要使用版本控制系统（如<a href="https://subversion.apache.org/">SVN</a>、<a href="https://git-scm.com/">GIT</a>）来管理你的工程文件。无论如何，<b>备份文件</b>是特别重要的事情！</li>
+                <li>如果某个obj模型需要被MTE编辑，在此模型的导入选项中，<b>不要选中Optimize Mesh</b>。Importer对模型的优化很可能会更改顶点数量和索引顺序。此类优化会导致模型数据和文件中数据的不一致，进而导致在使用MTE编辑时，产生各种严重的问题，无法进行编辑。</li>
+                <li>在点击“保存”按钮<b>保存模型之前，所有编辑操作都是可以撤销的</b>。保存模型后编辑历史将会被清空。注意，如果启用了自动保存，撤销重做功能也会在自动保存发生时失效！</li>
+                <li>请注意笔刷的大小的单位尺寸可以在<b><a href="#zh-Hans_Settings">设置</a> &gt; 笔刷单位</b>中设置。 <code>(实际笔刷大小) = (笔刷大小) * (笔刷单位)</code>. 所以您可以在开始编辑前调整好笔刷的单位大小，建议使用网格的单个格子大小作为单位大小。（对于非MTE创建的模型，MTE所计算的格子大小可能不正确或不合适，请自行调整。）</li>
 			</ul>
 		</div>
 
 		<h1 id="zh-Hans_Menu">主菜单</h1>
 		<div class="task-container">
-			<p>Mesh Terrain Editor的主菜单位于<span class="menu-path">Window/Mesh Terrain Editor</span></p>
+			<p>Mesh Terrain Editor的主菜单位于<span class="menu-path">Window/Mesh Terrain Editor</span>，通过点击菜单的各个条目，可以打开MTE的各项功能窗口进行使用。</p>
 
 			<h2>Mesh Terrain Editor</h2>
 			<img class="menu-1" />
@@ -3192,7 +3229,7 @@ Plugins
         ├── MTE Common.cginc (包含一些MTE通用shader代码)
         ├── Experimental (实验性质的shader, 不稳定)
         ├── HDRP (实验性质的高清晰渲染管线HDRP shader，使用Amplify Shader Editor编写, 不稳定)
-        ├── LWRP (轻量级渲染管线LWRP shader，使用Amplify Shader Editor编写)
+        ├── LWRP (轻量级渲染管线LWRP shader，使用Amplify Shader Editor编写，已被Unity废弃)
         ├── Legacy (旧式surface shader)
         ├── Specialized (用于特定旧GPU的特殊shader)
         ├── Standard (标准Standard shader)
@@ -3200,16 +3237,6 @@ Plugins
         └── Unlit (不受光CG shader)
 </pre>
 			</div>
-		</div>
-
-		<h1 id="zh-Hans_ImportantNote" style="color: orangered;">重要说明</h1>
-		<div class="task-container">
-			<ul>
-				<li>MTE会修改你的模型和相关文件。在编辑和保存的过程中，你的文件可能会在某些罕见的情况下被破坏。请一定要使用版本控制系统（如<a href="https://subversion.apache.org/">SVN</a>、<a href="https://git-scm.com/">GIT</a>）来管理你的工程文件。无论如何，<b>备份文件</b>是特别重要的事情！</li>
-				<li>如果某个obj模型需要被MTE编辑，在此模型的导入选项中，<b>不要选中Optimize Mesh</b>。Importer对模型的优化很可能会更改顶点数量和索引顺序。此类优化会导致模型数据和文件中数据的不一致，进而导致在使用MTE编辑时，产生各种严重的问题，无法进行编辑。</li>
-				<li>在点击“保存”按钮<b>保存模型之前，所有编辑操作都是可以撤销的</b>。保存模型后编辑历史将会被清空。注意，如果启用了自动保存，撤销重做功能也会在自动保存发生时失效！</li>
-				<li>请注意笔刷的大小的单位尺寸可以在<b><a href="#zh-Hans_Settings">设置</a> &gt; 笔刷单位</b>中设置。 <code>(实际笔刷大小) = (笔刷大小) * (笔刷单位)</code>. 所以您可以在开始编辑前调整好笔刷的单位大小，建议使用网格的单个格子大小作为单位大小。（对于非MTE创建的模型，MTE所计算的格子大小可能不正确或不合适，请自行调整。）</li>
-			</ul>
 		</div>
 
 		<h1 id="zh-Hans_Activation">激活专业版</h1>
@@ -4155,6 +4182,37 @@ Plugins
 
 		<h1 id="zh-Hans_VersionHistory">版本历史</h1>
 		<div class="task-container">
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0f1</a></p>
+			<ul>
+				<li>
+					<strong>编辑器</strong>
+					<ul>
+						<li>[对象编辑工具] 支持统一缩放预制。</li>
+                        <li>[对象编辑工具] 支持在放置对象时不发生重合。</li>
+                        <li>[Basemap烘培工具] 支持烘培时关闭光照。</li>
+						<li>[Basemap烘培工具] 支持烘培时考虑光照图。</li>
+                        <li>[Basemap烘培工具] 支持设置输出的图像大小。</li>
+					</ul>
+				</li>
+				<li>
+					<strong>Shader</strong>
+					<ul>
+                        <li>增加法线强度shader_feature，用于所有使用了法线贴图的shader</li>
+                        <li>支持URP和Standard shader中使用光滑度贴图：提供了界面工具用于将每一层的颜色贴图(RGB)和光滑度贴图(A)合并为一张RGBA32贴图用于渲染。</li>
+                        <li>增加高度混合贴图，目前只支持4层。</li>
+                    </ul>
+                </li>
+				<li>
+					<strong>其他</strong>
+					<ul>
+                        <li>改进了和最新版本URP的兼容性。</li>
+                        <li>改进了和最新版本Amplify Shader Editor的兼容性。</li>
+                        <li>改进体验： 创建工具和转换器会将结果居中到场景中显示。</li>
+						<li>改进体验： 选中相机时会临时禁用MTE编辑器。</li>
+						<li>改进稳定性和界面布局。</li>
+					</ul>
+                </li>
+			</ul>
 			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/2">2020-09-01 v3.7.2</a></p>
 			<ul>
 				<li>
@@ -4205,62 +4263,63 @@ Plugins
 					</ul>
                 </li>
 			</ul>
-			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/15?closed=1">2020-05-05 v3.7.0</a></p>
-			<ul>
-				<li>
-					<strong>创建工具</strong>
-					<ul>
-						<li>支持在从高度图创建MTE地表时使用Alpha8和R8格式的高度图</li>
-						<li>修复问题：当创建平铺的MTE地表时，出现警告：A meta data file (.meta) exists but its asset 'xxx/prototype' can't be found</li>
-						<li>修复问题：创建的平铺MTE地表的材质上没有控制图</li>
-                        <li>改进用户体验：支持自定义编辑器标签的宽度</li>
-					</ul>
-				</li>
-				<li>
-					<strong>转换器</strong>
-					<ul>
-						<li>修复问题：将模型转换为MTE地表后，MTE地表的材质上没有控制图</li>
-                        <li>修复问题：当试图转换一个带有无效层的Unity地形时，发生NullReferenceException错误</li>
-					</ul>
-				</li>
-				<li>
-					<strong>编辑器</strong>
-					<ul>
-						<li>添加支持：更改点和笔刷框的颜色</li>
-						<li>添加支持：使用高度工具和模型工具时，在鼠标释放时自动保存模型</li>
-						<li>添加支持：每隔特定时间自动保存模型</li>
-						<li>添加功能：模型保存成功时添加场景提示说明</li>
-						<li>改进用户体验：减少对大型模型的碰撞体的更新频率，改善编辑器卡顿的状况</li>
-						<li>修复问题：手形工具和MTE编辑器会发生冲突</li>
-                        <li>修复问题：更新MTE版本后，草组件GrassLoader变成了missing script状态，并且草的asset文件变得无效。</li>
-						<li>修复问题：当场景中有平面对象（Plane）时，打开MTE编辑器会产生错误ArgumentException: relativePath Resources/unity_builtin_extra doesn't starts with "Assets/"</li>
-					</ul>
-				</li>
-				<li>
-					<strong>总体</strong>
-					<ul>
-                        <li>完全刷新了整个文档</li>
-                        <li>增加了实验性质的6、7、8层贴图的shader</li>
-						<li>增加了实验性质的高度混合的Packed Shader：Experimental/Packed.</li>
-						<li>增加了贴图调整工具（Texture Adjuster）用来调整现有（控制图）贴图的大小，或者翻转它</li>
-						<li>改进用户体验：切换工具时显示场景通知</li>
-                        <li>修复问题：MTE/Standard/5 Textures/Bumped/Fog的UI界面不正常</li>
-						<li>修复问题：欢迎窗口不显示</li>
-                        <li>支持URP</li>
-                        <li>支持Unity 2019.3和2020.1</li>
-						<li>添加菜单项目：打开编辑器日志目录</li>
-                        <li>添加菜单项目：重置MTE</li>
-						<li>修复问题：控制图的导入选项没有正确设置，"sRGB (Color Texture)"不应该被选中</li>
-                        <li>改进用户体验：使帮助按钮在Unity 2019.3+上更加显著</li>
-                        <li>修复问题：在Unity 2019.3+上的扁平界面上，笔刷选中时的蓝底消失了</li>
-						<li>增加功能：材质编辑器上增加“调整”按钮来调整控制图</li>
-					</ul>
-                </li>
-			</ul>
 
 			<button class="toggleButton">更多</button>
 
 			<div class="toggleContent">
+			
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/15?closed=1">2020-05-05 v3.7.0</a></p>
+			    <ul>
+				    <li>
+					    <strong>创建工具</strong>
+					    <ul>
+						    <li>支持在从高度图创建MTE地表时使用Alpha8和R8格式的高度图</li>
+						    <li>修复问题：当创建平铺的MTE地表时，出现警告：A meta data file (.meta) exists but its asset 'xxx/prototype' can't be found</li>
+						    <li>修复问题：创建的平铺MTE地表的材质上没有控制图</li>
+                            <li>改进用户体验：支持自定义编辑器标签的宽度</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>转换器</strong>
+					    <ul>
+						    <li>修复问题：将模型转换为MTE地表后，MTE地表的材质上没有控制图</li>
+                            <li>修复问题：当试图转换一个带有无效层的Unity地形时，发生NullReferenceException错误</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>编辑器</strong>
+					    <ul>
+						    <li>添加支持：更改点和笔刷框的颜色</li>
+						    <li>添加支持：使用高度工具和模型工具时，在鼠标释放时自动保存模型</li>
+						    <li>添加支持：每隔特定时间自动保存模型</li>
+						    <li>添加功能：模型保存成功时添加场景提示说明</li>
+						    <li>改进用户体验：减少对大型模型的碰撞体的更新频率，改善编辑器卡顿的状况</li>
+						    <li>修复问题：手形工具和MTE编辑器会发生冲突</li>
+                            <li>修复问题：更新MTE版本后，草组件GrassLoader变成了missing script状态，并且草的asset文件变得无效。</li>
+						    <li>修复问题：当场景中有平面对象（Plane）时，打开MTE编辑器会产生错误ArgumentException: relativePath Resources/unity_builtin_extra doesn't starts with "Assets/"</li>
+					    </ul>
+				    </li>
+				    <li>
+					    <strong>总体</strong>
+					    <ul>
+                            <li>完全刷新了整个文档</li>
+                            <li>增加了实验性质的6、7、8层贴图的shader</li>
+						    <li>增加了实验性质的高度混合的Packed Shader：Experimental/Packed.</li>
+						    <li>增加了贴图调整工具（Texture Adjuster）用来调整现有（控制图）贴图的大小，或者翻转它</li>
+						    <li>改进用户体验：切换工具时显示场景通知</li>
+                            <li>修复问题：MTE/Standard/5 Textures/Bumped/Fog的UI界面不正常</li>
+						    <li>修复问题：欢迎窗口不显示</li>
+                            <li>支持URP</li>
+                            <li>支持Unity 2019.3和2020.1</li>
+						    <li>添加菜单项目：打开编辑器日志目录</li>
+                            <li>添加菜单项目：重置MTE</li>
+						    <li>修复问题：控制图的导入选项没有正确设置，"sRGB (Color Texture)"不应该被选中</li>
+                            <li>改进用户体验：使帮助按钮在Unity 2019.3+上更加显著</li>
+                            <li>修复问题：在Unity 2019.3+上的扁平界面上，笔刷选中时的蓝底消失了</li>
+						    <li>增加功能：材质编辑器上增加“调整”按钮来调整控制图</li>
+					    </ul>
+                    </li>
+			    </ul>
 				<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/milestone/14?closed=1">2019-12-24 v3.6.1</a></p>
 				<ul>
 					<li>
