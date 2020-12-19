@@ -289,10 +289,10 @@ background-color: #e4e4e4;
 border: 1px solid #b2b2b2;
 border-bottom: 1px solid #939393;
 border-radius: 3px;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+user-select: auto;
 -webkit-appearance: none
 }
 
@@ -312,10 +312,10 @@ background-color: #e4e4e4;
 border: 1px solid #b2b2b2;
 border-bottom: 1px solid #939393;
 border-radius: 3px;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+user-select: auto;
 -webkit-appearance: none
 }
 
@@ -337,10 +337,10 @@ background-color: #e4e4e4;
 border: 1px solid #b2b2b2;
 border-bottom: 1px solid #939393;
 border-radius: 3px;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+user-select: auto;
 -webkit-appearance: none
 }
 
@@ -4115,7 +4115,7 @@ MTE_ReadMe.htm (这个文件)
         <div class="flex_container">
         <div class="flex_image"><img class="shader_gui" /></div>
         <div class="flex_content">
-            <p>使用ASE编写的shader可以继续被ASE编辑。通过点击shader界面顶部的<span class="long-button">Open In ASE</span>在ASE中打开。</p>
+            <p>使用ASE编写的shader可以继续被ASE编辑。通过点击shader界面顶部的<span class="long-button">用ASE打开</span>在ASE中打开。</p>
             <p>刷新按钮<img class="refresh_button" />用于为所有层生成“颜色&光滑度”贴图，如果此材质启用了光滑度贴图功能。颜色贴图的RGB通道和光滑度贴图的Alpha/Red通道会被合成为一张“颜色&光滑度”贴图，并实际用于shader中采样。</p>
 			<p>对于每一层，可以
                 </p><ul>
@@ -4126,10 +4126,10 @@ MTE_ReadMe.htm (这个文件)
 				</ul>
             
 			<p>点击<span class="long-button">+</span>可以增加1层。</p>
-            <p>点击<span class="button">调整</span>可以打开<a href="#en-US_TextureAdjuster">Texture Adjuster</a>修改控制图的大小和朝向。注意，如果有多张控制图，先确保调整为相同的大小，再继续画贴图。</p>
+            <p>点击<span class="button">调整</span>可以打开<a href="#zh-Hans_TextureAdjuster">贴图调整工具</a>修改控制图的大小和朝向。注意，如果有多张控制图，先确保调整为相同的大小，再继续画贴图。</p>
             <p>开启/关闭<b>启用光滑度贴图</b>来开启或关闭光滑度贴图功能。</p>
             <p>开启/关闭<b>启用法线强度</b>来开启或关闭法线强度功能。</p>
-			<p>（只在调试模式下可用）可以点击shader界面底部的<span class="button">(debug)显示默认shader界面</span>打开默认shader界面。注意默认shader界面可能会和MTE的界面冲突。</p>
+			<p>（只在调试模式下可用）可以点击shader界面底部的<span class="long-button">(debug)显示默认shader界面</span>打开默认shader界面。注意默认shader界面可能会和MTE的界面冲突。</p>
         </div>
         </div>
         </div>
