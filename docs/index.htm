@@ -1238,7 +1238,7 @@ holdReady:function(a){a?r.readyWait++:r.ready(!0)},ready:function(a){(a===!0?--r
 
 	<div class="lang" id="en-US"><!--lang block begin-->
 		<p>Thanks for choosing Mesh Terrain Editor! I hope you have fun working with it. :)</p>
-		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.1b2</span> (abbreviated to "MTE") </p>
+		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.1f1</span> (abbreviated to "MTE") </p>
 
 		<p>Join Mesh Terrain Editor's <a href="https://discord.gg/dQqp8B6">Discord Server</a>!</p>
 	
@@ -2083,7 +2083,7 @@ MTE_ReadMe.htm (this file)
 			<ul>
                 <li><b>common shaders</b><br />
 					<ul>
-                        <li>URP: URP shaders, created with Amplify Shader Editor, support partial features of PRB shading model</li>
+                        <li>URP: URP shaders, created with Amplify Shader Editor, support partial features of PBR shading model</li>
                         <li>Standard: standard shaders with partial PBR shading model</li>
                         <li>Legacy: legacy surface shaders with Lambert or Blinn-Phong shading model</li>
                     </ul>
@@ -2123,6 +2123,14 @@ MTE_ReadMe.htm (this file)
         <p>Toggle on/off <i>Enable Normal Intensity</i> to enable/disable Normal Intensity feature.</p>
 		<p>(Only available in Debug Mode.) You can toggle on default shader UI with <span class="long-button">(debug)Show Default Shader GUI</span> at the bottom. Note the default shader UI might conflict with MTE's one.
 		</p>
+		<p><strong>Note</strong> For tiled mesh-terrains, please use the Tile Container UI, located at the inspector UI of the root GameObject, to toggle on Smoothness Texture feature and refresh albedo&smoothness textures.</p>
+			
+        <p id="en-US_TiledMeshTerrainShader"><strong>Note</strong> For tiled mesh-terrains,
+            </p><ul>
+                <li>Use the Tile Container UI, located at the inspector UI of the root GameObject, to toggle on Smoothness Texture feature and refresh albedo&smoothness textures.</li>
+                <li>albedo&smoothness textures are determined by first tile, whose name ends with "_00_00", and all mesh-terrain tiles will shared the same layer textures.</li>
+            </ul>
+        
         </div>
 		</div>
         </div>
@@ -2319,7 +2327,41 @@ MTE_ReadMe.htm (this file)
 
 		<h1 id="en-US_VersionHistory">Version History</h1>
 		<div class="task-container">
-			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0f1</a></p>
+            <p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/5">2020-01-03 v3.8.1</a></p>
+            <ul>
+                <li>
+                    <strong>Editor</strong>
+                    <ul>
+                        <li>Support circular brush for vertex selection.</li>
+                        <li>Fix issue: high memory usage when painting textures.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Converter</strong>
+                    <ul>
+                        <li>Support keeping light-mapping data when converting Unity terrain; mesh uv2 will be generated. The obj format is not supported.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Shader</strong>
+                    <ul>
+                        <li>Fix URP shader: set default specular to 0 instead of 0.5</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>General</strong>
+                    <ul>
+                        <li>Improve albedo&amp;smoothness texture support for tiled mesh-terrains.</li>
+						<li>Re-organize folder structure.</li>
+                        <li>Improve shader UI.</li>
+                        <li>Add documentation on MTE shaders.</li>
+						<li>Automatically check for updates and prompt.</li>
+                        <li>Improve compatibility with 2020.2.</li>
+                        <li>Fix several UI caused NRE issues.</li>
+                    </ul>
+                </li>
+            </ul>
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0</a></p>
 			<ul>
 				<li>
 					<strong>Editor</strong>
@@ -3225,7 +3267,7 @@ MTE_ReadMe.htm (this file)
 		<!--lang block begin-->
 
 		<p>感谢选择Mesh Terrain Editor！希望您用得高兴。^_^</p>
-		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.1b2</span>， 缩写为"MTE"</p>
+		<p>Mesh Terrain Editor v<span name="InformationVersion">3.8.1f1</span>， 缩写为"MTE"</p>
 
 		<p style="font-weight: bold">欢迎加入Mesh Terrain Editor交流群<a href="http://shang.qq.com/wpa/qunwpa?idkey=5e654a8b0cb6d9fc3694a72962a05d1458222776ebdae00318f48b2dfb156267" rel="nofollow">689511734</a></p>
 	
@@ -4130,6 +4172,12 @@ MTE_ReadMe.htm (这个文件)
             <p>开启/关闭<b>启用光滑度贴图</b>来开启或关闭光滑度贴图功能。</p>
             <p>开启/关闭<b>启用法线强度</b>来开启或关闭法线强度功能。</p>
 			<p>（只在调试模式下可用）可以点击shader界面底部的<span class="long-button">(debug)显示默认shader界面</span>打开默认shader界面。注意默认shader界面可能会和MTE的界面冲突。</p>
+            <p id="zh-Hans_TiledMeshTerrainShader"><strong>注意</strong> 对于多块平铺的MTE地形，
+				</p><ul>
+                    <li>使用根对象上的界面来启用“颜色&光滑度贴图”功能，或刷新“颜色&光滑度”贴图。</li>
+                    <li>“颜色&光滑度”贴图由第一块地形（名字以“_00_00”结尾）决定，并且所有地块都使用相同的层贴图</li>
+                </ul>
+            
         </div>
         </div>
         </div>
@@ -4329,7 +4377,41 @@ MTE_ReadMe.htm (这个文件)
 
 		<h1 id="zh-Hans_VersionHistory">版本历史</h1>
 		<div class="task-container">
-			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0f1</a></p>
+            <p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/5">2020-01-03 v3.8.1</a></p>
+            <ul>
+                <li>
+                    <strong>编辑器</strong>
+                    <ul>
+                        <li>支持使用原型笔刷选择顶点</li>
+                        <li>修复问题：绘制贴图会占用非常多的内存</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>转换器</strong>
+                    <ul>
+                        <li>支持转换Unity地形时时保持光照数据，会自动生成模型的uv2（不支持obj格式）</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Shader</strong>
+                    <ul>
+                        <li>修复URP shader: 设置默认高光为0而不是之前的0.5</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>总体</strong>
+                    <ul>
+                        <li>改进分块地形对“颜色&amp;光滑度”贴图的支持</li>
+                        <li>重新组织了文件夹结构</li>
+                        <li>更新了shader界面</li>
+                        <li>增加关于MTE shader的文档</li>
+                        <li>自动检查、提示更新</li>
+                        <li>改进与Unity 2020.2的兼容性</li>
+                        <li>修复几处和界面有关的NRE报错</li>
+                    </ul>
+                </li>
+            </ul>
+			<p><a href="https://github.com/zwcloud/MeshTerrainEditor-issues/projects/4">2020-11-07 v3.8.0</a></p>
 			<ul>
 				<li>
 					<strong>编辑器</strong>
