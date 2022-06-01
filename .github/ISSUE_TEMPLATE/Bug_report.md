@@ -16,7 +16,7 @@ Warning: For MTE Pro users, NEVER post invoice number publicly.
 (A clear and concise description of what the bug is.)
 
 **To Reproduce**  
-(First open MTE debug mode at MTE editor -> Setttings -> debug mode)
+(First open MTE debug mode at MTE editor -> Settings -> debug mode)
 Steps to reproduce the behavior:
 1. Open MTE creator/editor/converter.
 2. Click on '....'
@@ -35,9 +35,9 @@ error log line 3
 (If applicable, add screenshots and/or short video (compressed into a zip file) to help explain your problem.)
 
 **Environment**  
- - OS: Win10/macOS high sierra
- - Unity version: 5.6.5f1/2017.1f1/2018.1.5f1
- - MTE Version: 3.3.3
+ - OS: Win10/macOS Monterey
+ - Unity version: 2020.3.12f1
+ - MTE Version: 4.0.0b1
 
 **Additional context**  
 (Add any other context about the problem here.)
