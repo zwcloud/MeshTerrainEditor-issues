@@ -13,4 +13,4 @@ This is the official issue tracking repo of [Mesh Terrain Editor](http://forum.u
 Forum: http://forum.unity3d.com/threads/mte.396808/  
 Discord: https://discord.gg/dQqp8B6
 
-QQ群：[689511734](http://shang.qq.com/wpa/qunwpa?idkey=5e654a8b0cb6d9fc3694a72962a05d1458222776ebdae00318f48b2dfb156267)
+飞书群组：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=806of7ff-0d0e-4010-9cce-c45fd59991a1
