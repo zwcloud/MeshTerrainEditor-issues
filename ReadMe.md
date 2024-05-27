@@ -4,7 +4,6 @@ This is the official issue tracking repo of [Mesh Terrain Editor](https://assets
 
 # Unity Asset Store
 
-* [MTE Pro](https://assetstore.unity.com/packages/tools/terrain/mesh-terrain-editor-pro-57515)
 * [MTE Free](https://assetstore.unity.com/packages/tools/terrain/mesh-terrain-editor-free-67758)
 
 # Community
